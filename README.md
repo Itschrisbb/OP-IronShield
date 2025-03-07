@@ -82,10 +82,10 @@ After the capture of Zu\`laibar, your forces moved on to the next town. The USA 
 Timeline:
 
 * January:  
-  - [x] ~~Game idea, gerne, direction~~  
-  - [x] ~~Idea formation~~  
-  - [x] ~~Story/plot~~  
-  - [x] ~~Rough draft & mockup~~  
+  - [x] Game idea, gerne, direction
+  - [x] Idea formation
+  - [x] Story/plot
+  - [x] Rough draft & mockup
 * February  
   - [ ] Terrain design  
   - [ ] Environment design  
