@@ -101,7 +101,7 @@ After the capture of Zu\`laibar, your forces moved on to the next town. The USA 
 
 # Other Information
 
-Github Repository: [https://github.com/KhoiLe18/Operation-Iron-Shield](https://github.com/KhoiLe18/Operation-Iron-Shield)
+Github Repository: [https://github.com/KhoiLe18/Operation-Iron-Shield](https://github.com/Itschrisbb/OP-IronShield)
 
 Timeline:
 
