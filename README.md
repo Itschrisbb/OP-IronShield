@@ -1,27 +1,3 @@
-# 
-
-# 
-
-# 
-
-# 
-
-# 
-
-# 
-
-# 
-
-# 
-
-# 
-
-# 
-
-# 
-
-# 
-
 # Operation Iron Shield
 
 ## By: Khoi Le & Christopher Robinson
@@ -115,7 +91,7 @@ Timeline:
   - [ ] Environment design  
   - [ ] Character design  
   - [ ] NPC AI design  
-  - [ ] Upload files to the Github repository  
+  - [x] Upload files to the Github repository  
   - [ ] Game becomes a playable beta  
 * March  
   - [ ] NPC AI design fine-tuning  
@@ -131,7 +107,9 @@ Responsibilities:
 * Khoi:  
   * Plot, story, world settings  
   * Play area rough draft  
-  * Github  
+  * GitHub
+  * Play testing  
 * Christopher:  
   * Terrain, models  
   * Play area mockup
+  * Play testing
