@@ -56,40 +56,49 @@ public class Gun : MonoBehaviour
     }
 
     void Shoot()
+{
+    currentAmmo--;
+
+    if (muzzleFlash != null)
     {
-        currentAmmo--;
-
-        if (muzzleFlash != null)
-        {
-            muzzleFlash.SetActive(true);
-            Invoke(nameof(DisableMuzzleFlash), 0.05f);
-        }
-
-        RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
-        {
-            Target target = hit.transform.GetComponent<Target>();
-            if (target != null)
-            {
-                target.TakeDamage(damage);
-                 if (ui != null)
-                    ui.ShowHitmarker();
-            }
-
-            if (hit.rigidbody != null)
-            {
-                hit.rigidbody.AddForce(-hit.normal * impactForce);
-            }
-
-            if (impactEffect != null)
-            {
-                GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-                Destroy(impactGO, 1f);
-            }
-        }
-
-        Debug.Log("Ammo: " + currentAmmo + "/" + reserveAmmo);
+        muzzleFlash.SetActive(true);
+        Invoke(nameof(DisableMuzzleFlash), 0.05f);
     }
+
+    RaycastHit hit;
+    if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+    {
+        Debug.Log("Hit: " + hit.transform.name);
+
+        EnemyAI enemy = hit.transform.GetComponentInParent<EnemyAI>();
+        if (enemy != null)
+        {
+            enemy.TakeDamage((int)damage);
+            if (ui != null) ui.ShowHitmarker();
+        }
+
+        Target target = hit.transform.GetComponent<Target>();
+        if (target != null)
+        {
+            target.TakeDamage(damage);
+            if (ui != null) ui.ShowHitmarker();
+        }
+
+        if (hit.rigidbody != null)
+        {
+            hit.rigidbody.AddForce(-hit.normal * impactForce);
+        }
+
+        if (impactEffect != null)
+        {
+            GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            Destroy(impactGO, 1f);
+        }
+    }
+
+    Debug.Log("Ammo: " + currentAmmo + "/" + reserveAmmo);
+}
+
 
     void DisableMuzzleFlash()
     {

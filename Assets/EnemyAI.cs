@@ -13,10 +13,17 @@ public class EnemyAI : MonoBehaviour
     private Transform target;
     private NavMeshAgent agent;
     private float lastAttackTime;
+    public EnemyHealthBar healthBar;
+
 
     private void Start()
     {
         currentHealth = maxHealth;
+        if (healthBar != null)
+        {
+            healthBar.SetMaxHealth(maxHealth);
+            healthBar.lookAtTarget = Camera.main.transform;
+        }
         target = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         agent = GetComponent<NavMeshAgent>();
@@ -60,6 +67,8 @@ public class EnemyAI : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+        if (healthBar != null)
+        healthBar.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {
             Die();
