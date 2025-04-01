@@ -72,6 +72,8 @@ public class Gun : MonoBehaviour
             if (target != null)
             {
                 target.TakeDamage(damage);
+                 if (ui != null)
+                    ui.ShowHitmarker();
             }
 
             if (hit.rigidbody != null)

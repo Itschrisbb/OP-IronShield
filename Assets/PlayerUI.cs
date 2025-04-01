@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -9,10 +10,15 @@ public class PlayerUI : MonoBehaviour
     public Slider healthBar;
     public TextMeshProUGUI reloadText;
     public GameObject crosshair;
+    public GameObject hitmarker;
 
     [Header("Player Stats")]
     public int maxHealth = 100;
     private int currentHealth;
+
+    [Header("Hitmarker Settings")]
+    public float hitmarkerDuration = 0.1f;
+    private Coroutine hitmarkerRoutine;
 
     private Gun gun;
 
@@ -32,6 +38,9 @@ public class PlayerUI : MonoBehaviour
 
         if (crosshair != null)
             crosshair.SetActive(true);
+
+        if (hitmarker != null)
+            hitmarker.SetActive(false);
     }
 
     void Update()
@@ -82,5 +91,20 @@ public class PlayerUI : MonoBehaviour
 
         if (crosshair != null)
             crosshair.SetActive(true);
+    }
+
+    public void ShowHitmarker()
+    {
+        if (hitmarkerRoutine != null)
+            StopCoroutine(hitmarkerRoutine);
+
+        hitmarkerRoutine = StartCoroutine(HitmarkerFlash());
+    }
+
+    private IEnumerator HitmarkerFlash()
+    {
+        hitmarker.SetActive(true);
+        yield return new WaitForSeconds(hitmarkerDuration);
+        hitmarker.SetActive(false);
     }
 }
