@@ -36465,7 +36465,7 @@ GameObject:
   - component: {fileID: 1023627398}
   - component: {fileID: 1023627397}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: PlayerCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36480,7 +36480,7 @@ Transform:
   m_GameObject: {fileID: 1023627395}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.6, z: 0}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39670,7 +39670,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1129759495}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63696,21 +63696,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d499248ebd84674093d3caf87ecc9a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 4
-  sprintSpeed: 7
+  walkSpeed: 8
+  sprintSpeed: 14
   crouchSpeed: 2
   jumpHeight: 2
   gravity: -20
   mouseSensitivity: 2
-  playerCamera: {fileID: 0}
-  crouchHeight: 1
-  standHeight: 2
+  playerCamera: {fileID: 1023627396}
+  crouchHeight: 3
+  standHeight: 5
   crouchTransitionSpeed: 6
   groundCheck: {fileID: 1129759495}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!143 &1828772209
 CharacterController:
   m_ObjectHideFlags: 0
@@ -63729,13 +63729,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 4
-  m_Radius: 0.5
+  m_Height: 6
+  m_Radius: 1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Center: {x: 0, y: 3, z: 0}
 --- !u!4 &1828772210
 Transform:
   m_ObjectHideFlags: 0
@@ -63745,7 +63745,7 @@ Transform:
   m_GameObject: {fileID: 1828772207}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 526.5, y: 1, z: 553.6}
+  m_LocalPosition: {x: 526.5, y: 2, z: 553.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
