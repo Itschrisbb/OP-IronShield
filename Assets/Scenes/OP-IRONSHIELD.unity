@@ -78257,6 +78257,8 @@ MonoBehaviour:
   attackCooldown: 1.5
   maxHealth: 100
   healthBar: {fileID: 2087274658}
+  ragdollPrefab: {fileID: 8303371027966589729, guid: a03fe2aec130a1f4ea19c8ec4b821b6e, type: 3}
+  ragdollDespawnTime: 10
 --- !u!54 &2106314135
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -78369,7 +78371,7 @@ Transform:
   m_GameObject: {fileID: 2106314133}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 527.3822, y: 3.39, z: 556.37256}
+  m_LocalPosition: {x: 527.3822, y: 3.39, z: 573.26}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

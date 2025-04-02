@@ -14,6 +14,9 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent agent;
     private float lastAttackTime;
     public EnemyHealthBar healthBar;
+    public GameObject ragdollPrefab;
+    public float ragdollDespawnTime = 10f;
+
 
 
     private void Start()
@@ -76,7 +79,22 @@ public class EnemyAI : MonoBehaviour
     }
 
     void Die()
+{
+    if (ragdollPrefab != null)
     {
-        Destroy(gameObject);
+        GameObject ragdoll = Instantiate(ragdollPrefab, transform.position + Vector3.up * 0.1f, transform.rotation);
+
+        Rigidbody rb = ragdoll.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            // Simple blast force backward
+            rb.AddForce(-transform.forward * 8f + Vector3.up * 2f, ForceMode.Impulse);
+        }
+
+        Destroy(ragdoll, ragdollDespawnTime);
     }
+
+    Destroy(gameObject);
+}
+
 }
