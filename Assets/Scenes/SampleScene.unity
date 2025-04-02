@@ -63702,7 +63702,7 @@ MonoBehaviour:
   jumpHeight: 2
   gravity: -20
   mouseSensitivity: 2
-  playerCamera: {fileID: 0}
+  playerCamera: {fileID: 1023627396}
   crouchHeight: 1
   standHeight: 2
   crouchTransitionSpeed: 6
