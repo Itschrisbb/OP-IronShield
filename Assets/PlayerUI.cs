@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -12,10 +11,6 @@ public class PlayerUI : MonoBehaviour
     public GameObject crosshair;
     public GameObject hitmarker;
 
-    [Header("Player Stats")]
-    public int maxHealth = 100;
-    private int currentHealth;
-
     [Header("Hitmarker Settings")]
     public float hitmarkerDuration = 0.1f;
     private Coroutine hitmarkerRoutine;
@@ -25,12 +20,10 @@ public class PlayerUI : MonoBehaviour
     void Start()
     {
         gun = FindObjectOfType<Gun>();
-        currentHealth = maxHealth;
 
         if (healthBar != null)
         {
-            healthBar.maxValue = maxHealth;
-            healthBar.value = currentHealth;
+            healthBar.value = healthBar.maxValue;
         }
 
         if (reloadText != null)
@@ -51,28 +44,22 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int amount)
+    // ✅ Called from PlayerHealth.cs
+    public void SetMaxHealth(int max)
     {
-        currentHealth -= amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-
         if (healthBar != null)
-            healthBar.value = currentHealth;
-
-        if (currentHealth <= 0)
         {
-            Debug.Log("Player Died!");
-            // TODO: death handling
+            healthBar.maxValue = max;
+            healthBar.value = max;
         }
     }
 
-    public void Heal(int amount)
+    public void UpdateHealth(int current)
     {
-        currentHealth += amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-
         if (healthBar != null)
-            healthBar.value = currentHealth;
+        {
+            healthBar.value = current;
+        }
     }
 
     public void ShowReloading()
@@ -101,10 +88,13 @@ public class PlayerUI : MonoBehaviour
         hitmarkerRoutine = StartCoroutine(HitmarkerFlash());
     }
 
-    private IEnumerator HitmarkerFlash()
+    private System.Collections.IEnumerator HitmarkerFlash()
     {
-        hitmarker.SetActive(true);
-        yield return new WaitForSeconds(hitmarkerDuration);
-        hitmarker.SetActive(false);
+        if (hitmarker != null)
+        {
+            hitmarker.SetActive(true);
+            yield return new WaitForSeconds(hitmarkerDuration);
+            hitmarker.SetActive(false);
+        }
     }
 }
