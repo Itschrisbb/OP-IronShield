@@ -44,7 +44,7 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
-    // ✅ Called from PlayerHealth.cs
+    // Called from PlayerHealth.cs
     public void SetMaxHealth(int max)
     {
         if (healthBar != null)

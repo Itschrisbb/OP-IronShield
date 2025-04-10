@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
 
-        // ✅ Get PlayerUI on the same GameObject
+        //Get PlayerUI on the same GameObject
         playerUI = GetComponent<PlayerUI>();
 
         if (playerUI != null)
